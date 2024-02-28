@@ -14,7 +14,8 @@ from scipy.constants import convert_temperature
 
 def main(temp_f: float) -> float:
     print('using scipy.convert_temperature')
-    return convert_temperature(float(temp_f), 'F', 'C')
+    return 999
+    # return convert_temperature(float(temp_f), 'F', 'C')
 
 def main_OLD(temp_f: float) -> float:
     return (float(temp_f) - 32) * (5/9)
