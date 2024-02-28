@@ -1,4 +1,4 @@
-name: snowflake-demo
+name: python3.10_snowpark
 channels:
   - https://repo.anaconda.com/pkgs/snowflake
   - nodefaults

@@ -112,11 +112,24 @@ if __name__ == "__main__":
     parent_dir = os.path.dirname(current_dir)
     sys.path.append(parent_dir)
 
+    # print('parent_dir', parent_dir)
+
     from utils import snowpark_utils
     session = snowpark_utils.get_snowpark_session()
+    
+    # import json
+    # with open('C:\\Users\\User\\Documents\\tmp_repo\\creds.json') as f:
+    #     connection_parameters = json.load(f)
+
+
+    # session = Session.builder.configs(connection_parameters).create()
+    print(f"Current Database and schema: {session.get_fully_qualified_current_schema()}")
+    print(f"Current Warehouse: {session.get_current_warehouse()}")
+
+
 
     create_pos_view(session)
     create_pos_view_stream(session)
-#    test_pos_view(session)
+    # test_pos_view(session)
 
     session.close()

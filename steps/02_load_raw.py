@@ -75,7 +75,18 @@ if __name__ == "__main__":
     from utils import snowpark_utils
     session = snowpark_utils.get_snowpark_session()
 
+
+    # import json
+    # with open('C:\\Users\\User\\Documents\\tmp_repo\\creds.json') as f:
+    #     connection_parameters = json.load(f)
+
+    # session = Session.builder.configs(connection_parameters).create()
+    
+    print(f"Current Database and schema: {session.get_fully_qualified_current_schema()}")
+    print(f"Current Warehouse: {session.get_current_warehouse()}")
+
+
     load_all_raw_tables(session)
-#    validate_raw_tables(session)
+    # validate_raw_tables(session)
 
     session.close()

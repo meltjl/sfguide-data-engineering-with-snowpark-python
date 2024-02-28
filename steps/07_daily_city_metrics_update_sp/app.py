@@ -107,6 +107,8 @@ def main(session: Session) -> str:
 if __name__ == '__main__':
     # Add the utils package to our path and import the snowpark_utils function
     import os, sys
+    
+    # mel 20240228 make sure cd into steps\07_daily_city_metrics_update_sp>  to run else it can't find utils
     current_dir = os.getcwd()
     parent_parent_dir = os.path.dirname(os.path.dirname(current_dir))
     sys.path.append(parent_parent_dir)
@@ -120,3 +122,8 @@ if __name__ == '__main__':
         print(main(session))  # type: ignore
 
     session.close()
+
+
+# REF: https://quickstarts.snowflake.com/guide/data_engineering_pipelines_with_snowpark_python/index.html?index=..%2F..index#7
+# ONCE THE MAIN IS RUN, RUN THE CODE BELOW TO DEPLY THE SP IN SNOWSIGHT
+# (python3.10_snowpark) PS C:\Users\User\Documents\tmp_repo\..steps\07_daily_city_metrics_update_sp> snow procedure create
